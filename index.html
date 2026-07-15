@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TREASURE OLAYEMI, ALLI - Full Stack &amp; Python Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #12110E;
+    --bg-raised: #1A1812;
+    --bg-card: #17140F;
+    --text: #F3EFE7;
+    --text-dim: #948C7A;
+    --text-dimmer: #635C4C;
+    --amber: #FFB000;
+    --amber-dim: #8A6318;
+    --teal: #4FD1C5;
+    --red: #E5484D;
+    --border: #2A2620;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before{
+    content:'';
+    position: fixed; inset:0;
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+    pointer-events:none; z-index: 1000;
+  }
+  a{ color: var(--amber); text-decoration:none; }
+  a:hover{ text-decoration: underline; }
+  :focus-visible{ outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  .wrap{ max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- window chrome shared ---------- */
+  .term{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .term-bar{
+    display:flex; align-items:center; gap:8px;
+    padding: 10px 14px;
+    background: var(--bg-raised);
+    border-bottom: 1px solid var(--border);
+  }
+  .dot{ width:11px; height:11px; border-radius:50%; }
+  .dot.r{ background:#E5484D55; border:1px solid #E5484D; }
+  .dot.y{ background:#FFB00055; border:1px solid #FFB000; }
+  .dot.g{ background:#4FD1C555; border:1px solid #4FD1C5; }
+  .term-path{
+    font-family: var(--mono); font-size: 12px; color: var(--text-dim);
+    margin-left: 8px;
+  }
+  .term-body{ padding: 22px 24px; font-family: var(--mono); font-size: 14px; }
+  .prompt{ color: var(--teal); }
+  .cmd{ color: var(--text); }
+
+  /* ---------- hero ---------- */
+  .hero{ padding: 64px 0 20px; }
+  #typed-name{ font-family: var(--mono); font-size: clamp(28px, 5vw, 44px); font-weight: 800; color: var(--amber); letter-spacing: -0.5px; }
+  .cursor{ display:inline-block; width: 10px; background: var(--amber); animation: blink 1s steps(1) infinite; margin-left: 2px; }
+  @keyframes blink{ 50%{ opacity: 0; } }
+  .hero-line{ font-family: var(--mono); font-size: 14px; color: var(--text-dim); margin-top: 6px; }
+  .hero-title{ font-size: 18px; color: var(--text); margin-top: 18px; font-weight: 500; }
+  .hero-desc{ margin-top: 10px; color: var(--text-dim); max-width: 640px; font-size: 15.5px; }
+
+  .env-row{ display:flex; flex-wrap:wrap; gap: 10px 18px; margin-top: 22px; font-family: var(--mono); font-size: 13px; }
+  .env-row span.key{ color: var(--text-dimmer); }
+  .env-row span.val{ color: var(--text); }
+  .env-row a.val{ color: var(--teal); }
+
+  /* ---------- section headers ---------- */
+  .section{ padding: 10px 0 8px; }
+  .section-head{
+    display:flex; align-items:baseline; gap: 10px;
+    font-family: var(--mono); font-size: 14px;
+    color: var(--text-dim);
+    margin: 46px 0 6px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  .section-head .p{ color: var(--teal); }
+  .section-head .c{ color: var(--amber); font-weight: 600; }
+  .section-sub{ font-family: var(--mono); font-size: 12px; color: var(--text-dimmer); margin-bottom: 18px; }
+
+  /* ---------- about ---------- */
+  .about-body p{ color: var(--text-dim); margin-bottom: 12px; font-size: 15px; }
+  .about-body p .hl{ color: var(--text); }
+
+  /* ---------- stack tree ---------- */
+  .tree{ font-family: var(--mono); font-size: 13.5px; }
+  .tree .branch{ color: var(--text-dimmer); }
+  .tree .cat{ color: var(--amber); font-weight: 600; }
+  .tree .leaf{ color: var(--text); }
+  .tree .tag{ color: var(--teal); font-size: 11px; margin-left: 8px; }
+  .tree-row{ padding: 5px 0; }
+
+  /* ---------- experience / commit log ---------- */
+  .commit{ display:flex; gap: 16px; padding: 18px 0; border-bottom: 1px dashed var(--border); }
+  .commit:last-child{ border-bottom:none; }
+  .commit-node{ font-family: var(--mono); color: var(--text-dimmer); font-size: 12px; padding-top: 3px; white-space: nowrap; }
+  .commit-node .hash{ color: var(--teal); }
+  .commit-main h3{ font-size: 16px; color: var(--text); font-weight: 600; }
+  .commit-main .role-org{ font-family: var(--mono); font-size: 12.5px; color: var(--amber); margin: 3px 0 8px; }
+  .commit-main ul{ list-style: none; }
+  .commit-main li{ font-size: 14px; color: var(--text-dim); margin: 4px 0; padding-left: 16px; position: relative; }
+  .commit-main li::before{ content:'+'; position:absolute; left:0; color: var(--teal); font-family: var(--mono); }
+
+  /* ---------- project cards ---------- */
+  .repo-grid{ display:grid; grid-template-columns: 1fr; gap: 14px; }
+  .repo-card{
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 18px 20px; transition: border-color .15s ease, transform .15s ease;
+  }
+  .repo-card:hover{ border-color: var(--amber-dim); transform: translateY(-1px); }
+  .repo-top{ display:flex; align-items:center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .repo-name{ font-family: var(--mono); font-size: 15.5px; font-weight: 700; color: var(--amber); }
+  .repo-status{ font-family: var(--mono); font-size: 10.5px; padding: 2px 8px; border-radius: 100px; border: 1px solid; white-space: nowrap; }
+  .status-live{ color: var(--teal); border-color: var(--teal); }
+  .status-hack{ color: var(--red); border-color: var(--red); }
+  .status-proto{ color: var(--text-dim); border-color: var(--text-dimmer); }
+  .repo-desc{ font-size: 14px; color: var(--text-dim); margin: 8px 0 12px; }
+  .repo-meta{ display:flex; align-items:center; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 11.5px; color: var(--text-dimmer); }
+  .lang-dot{ width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:5px; }
+  .lang{ display:flex; align-items:center; }
+  .chip{ background: var(--bg-raised); border: 1px solid var(--border); padding: 2px 8px; border-radius: 5px; color: var(--text-dim); }
+
+  /* misc list */
+  .misc-list{ font-family: var(--mono); font-size: 13.5px; }
+  .misc-row{ display:flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .misc-row:last-child{ border-bottom: none; }
+  .misc-name{ color: var(--text); }
+  .misc-desc{ color: var(--text-dimmer); font-size: 12.5px; }
+
+  /* footer / contact */
+  footer{ margin: 60px 0 40px; }
+  .env-file .term-body div{ padding: 2px 0; }
+  .env-key{ color: var(--teal); }
+  .env-val{ color: var(--text); }
+  footer .sign{ text-align:center; font-family: var(--mono); font-size: 11.5px; color: var(--text-dimmer); margin-top: 30px; }
+
+  @media (min-width: 640px){
+    .repo-grid{ grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cursor{ animation: none; }
+    *{ scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-line">$ whoami</div>
+    <div id="typed-name"></div>
+    <div class="hero-title">Full Stack Software Engineer · Python &amp; Web3 Backend</div>
+    <p class="hero-desc">Four years building RESTful APIs, data pipelines, and blockchain tooling — now shipping full-stack products in Next.js/FastAPI while running Solana and Cardano infrastructure on the side. Based in Lagos, Nigeria.</p>
+
+    <div class="env-row">
+      <span><span class="key">location=</span><span class="val">Lagos, Nigeria</span></span>
+      <span><span class="key">email=</span><a class="val" href="mailto:treasurealli33@gmail.com">treasurealli33@gmail.com</a></span>
+      <span><span class="key">phone=</span><span class="val">+234-812-014-0605</span></span>
+      <span><span class="key">github=</span><a class="val" href="https://github.com/TAENTED9" target="_blank" rel="noopener">github.com/TAENTED9</a></span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="section-head"><span class="p">$</span> <span class="cmd">cat</span> <span class="c">about.md</span></div>
+  <div class="about-body">
+    <p>Results-driven <span class="hl">Python developer</span> with four years of hands-on experience building backend systems, REST APIs, data pipelines, and automation tools — comfortable across <span class="hl">FastAPI, Flask, NumPy, Pandas, and OpenCV</span>.</p>
+    <p>Currently a <span class="hl">Full Stack Developer at Applegrove Advisory</span> and a <span class="hl">Software Engineer on Cardano-focused Web3 tooling</span>, while running a freelance practice since 2021 delivering APIs, automation, and integrations for international clients.</p>
+    <p>3rd-year <span class="hl">B.Sc. Computer Science</span> student at the University of Lagos (expected 2028), and an active builder in Nigeria's hackathon circuit — Union Bank/ECX, Nomba x DevCareer, and The Zero Cup.</p>
+  </div>
+
+  <!-- STACK -->
+  <div class="section-head"><span class="p">$</span> <span class="cmd">tree</span> <span class="c">stack/</span></div>
+  <div class="section-sub">// core language + frameworks I ship with daily</div>
+  <div class="tree">
+    <div class="tree-row"><span class="branch">├──</span> <span class="cat">languages</span> <span class="leaf">Python (adv, 4yrs), TypeScript, Rust, Java</span></div>
+    <div class="tree-row"><span class="branch">├──</span> <span class="cat">backend</span> <span class="leaf">FastAPI, Flask, PostgreSQL, Supabase</span></div>
+    <div class="tree-row"><span class="branch">├──</span> <span class="cat">frontend</span> <span class="leaf">Next.js, React, Tailwind CSS</span></div>
+    <div class="tree-row"><span class="branch">├──</span> <span class="cat">data / ml</span> <span class="leaf">Pandas, NumPy, scikit-learn, OpenCV, Matplotlib</span></div>
+    <div class="tree-row"><span class="branch">├──</span> <span class="cat">web3</span> <span class="leaf">Solana, Cardano/Aiken, Jupiter Aggregator</span> <span class="tag">#blockchain</span></div>
+    <div class="tree-row"><span class="branch">└──</span> <span class="cat">tooling</span> <span class="leaf">Docker, Git, Linux CLI, Blockfrost/Google APIs</span></div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section-head"><span class="p">$</span> <span class="cmd">git log</span> <span class="c">--stat experience</span></div>
+
+  <div class="commit">
+    <div class="commit-node"><span class="hash">a1f3c2e</span><br>2026 →</div>
+    <div class="commit-main">
+      <h3>Full Stack Developer</h3>
+      <div class="role-org">Applegrove Advisory Limited · Feb 2026 – Present</div>
+      <ul>
+        <li>Built and maintained full-stack apps with Next.js, FastAPI, PostgreSQL</li>
+        <li>Designed database schemas and improved query performance</li>
+        <li>Implemented secure authentication systems</li>
+        <li>Integrated Paystack and Cloudinary services</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="commit">
+    <div class="commit-node"><span class="hash">7d9b0a4</span><br>2025 →</div>
+    <div class="commit-main">
+      <h3>Software Engineer</h3>
+      <div class="role-org">Cardano Development</div>
+      <ul>
+        <li>Built Web3 tooling and smart contract infrastructure on Cardano</li>
+        <li>Worked across the Aiken ecosystem, from compilers to debuggers</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="commit">
+    <div class="commit-node"><span class="hash">3e5f81b</span><br>2021 →</div>
+    <div class="commit-main">
+      <h3>Freelance Python &amp; Software Developer</h3>
+      <div class="role-org">Self-employed · Lagos, Nigeria</div>
+      <ul>
+        <li>Designed REST APIs with FastAPI/Flask for clients across industries</li>
+        <li>Built data pipelines with Pandas/NumPy, turning raw data into analysis-ready output</li>
+        <li>Shipped web scraping and automation scripts reducing manual client workload</li>
+        <li>Integrated Google Drive, Google Maps, and Blockfrost APIs into backend services</li>
+        <li>Engineered performance-optimised algorithms with strong complexity awareness</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="commit">
+    <div class="commit-node"><span class="hash">0c1a29f</span><br>2020-21</div>
+    <div class="commit-main">
+      <h3>Robotics Programming Volunteer</h3>
+      <div class="role-org">High School Robotics Programme</div>
+      <ul>
+        <li>Programmed movement control and sensor-interaction logic in Python</li>
+        <li>Mentored junior students and coached teams through competition prep</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FEATURED PROJECTS -->
+  <div class="section-head"><span class="p">$</span> <span class="cmd">ls</span> <span class="c">projects/featured/</span></div>
+  <div class="section-sub">// 12 repositories, ordered roughly by scope</div>
+
+  <div class="repo-grid">
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">campify</span><span class="repo-status status-live">live</span></div>
+      <div class="repo-desc">Hyperlocal marketplace for UNILAG students — security-hardened, with a full seller/buyer dashboard.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Cloudinary</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">her-homes-africa</span><span class="repo-status status-live">live</span></div>
+      <div class="repo-desc">Nigerian real estate &amp; home-financing platform with Paystack payments, in-app messaging, and a universal notification router.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Cloudinary</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">bloom-lite</span><span class="repo-status status-proto">prototype</span></div>
+      <div class="repo-desc">Fintech remittance prototype for the Japan→Nigeria corridor, with an invisible custodial Solana layer and AES-256-GCM encrypted keypairs.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Solana</span><span class="chip">Jupiter Aggregator</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">vow-chain</span><span class="repo-status status-hack">hackathon</span></div>
+      <div class="repo-desc">Vowchain — an AI accountability app writing immutable commitment records to 0G Storage — plus the underlying Solana transaction infrastructure. Built for The Zero Cup.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">0G Storage</span><span class="chip">Solana</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">jito-bundle-bot</span><span class="repo-status status-proto">prototype</span></div>
+      <div class="repo-desc">Solana execution bot with an 8-stage pipeline: leader-slot detection, AI-driven tip calibration, failure diagnosis, blockhash refresh.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Jito</span><span class="chip">MEV</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">solana-security-patterns</span><span class="repo-status status-live">reference</span></div>
+      <div class="repo-desc">A published library of security patterns for Solana programs — common vulnerability classes and the defensive patterns that close them.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#89E051"></span>Shell</span><span class="chip">Solana</span><span class="chip">Open source</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">pyken-x-plutuscope</span><span class="repo-status status-live">tool</span></div>
+      <div class="repo-desc">Source-to-source compiler translating Python smart contracts into Aiken (Cardano), with a validator simulation and trace debugger. Rust extensions via PyO3.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span><span class="chip">Rust/PyO3</span><span class="chip">Cardano</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">cek-debugger</span><span class="repo-status status-live">tool</span></div>
+      <div class="repo-desc">A debugger for Untyped Plutus Core — the CEK machine that underlies Cardano smart contract execution.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#FFB000"></span>Plutus Core</span><span class="chip">Cardano</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">taented-tunneld-vpn</span><span class="repo-status status-live">tool</span></div>
+      <div class="repo-desc">A production-ready VPN client written in Rust, with cross-platform support, modern encryption, and full network configuration.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#DEA584"></span>Rust</span><span class="chip">Cross-platform</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">applegrove-blog</span><span class="repo-status status-live">live</span></div>
+      <div class="repo-desc">Blog system for Applegrove Advisory — shipped a PDF viewer/download feature with a Cloudinary proxy to get around iframe blocking.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Cloudinary</span><span class="chip">Neon</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">collins-portfolio</span><span class="repo-status status-live">client</span></div>
+      <div class="repo-desc">Portfolio site for visual artist Collins OluwaFemi — Cinzel/Cormorant Garamond type pairing, 3D Cover Flow carousel, curtain-reveal intro.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">3D/Motion</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><span class="repo-name">firecrackers-fc</span><span class="repo-status status-live">client</span></div>
+      <div class="repo-desc">Firecrackers FC — a football accelerator site built with Next.js 14 App Router, Tailwind CSS, and Resend for branded contact/partner emails.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#f7df1e"></span>JavaScript</span><span class="chip">Next.js 14</span><span class="chip">Resend</span></div>
+    </div>
+
+  </div>
+
+  <!-- MISC -->
+  <div class="section-head"><span class="p">$</span> <span class="cmd">ls</span> <span class="c">projects/misc/</span></div>
+  <div class="section-sub">// smaller builds — algorithm practice, one-off tools</div>
+  <div class="misc-list">
+    <div class="misc-row"><span class="misc-name">sales-transactions-prediction</span><span class="misc-desc">Kaggle dataset · Pandas cleaning · scikit-learn linear regression · Matplotlib visualisation</span></div>
+    <div class="misc-row"><span class="misc-name">computational-methods</span><span class="misc-desc">Benchmarked algorithm implementations, optimised for speed and resource use</span></div>
+    <div class="misc-row"><span class="misc-name">mediagrab</span><span class="misc-desc">FlaskAPI web app for downloading media across platforms</span></div>
+    <div class="misc-row"><span class="misc-name">java-password-generator</span><span class="misc-desc">Java</span></div>
+    <div class="misc-row"><span class="misc-name">python-password-generator</span><span class="misc-desc">Python</span></div>
+  </div>
+
+  <!-- CONTACT -->
+  <footer>
+    <div class="section-head"><span class="p">$</span> <span class="cmd">cat</span> <span class="c">.env</span></div>
+    <div class="term env-file">
+      <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-path">contact/.env</span></div>
+      <div class="term-body">
+        <div><span class="env-key">EMAIL</span>=<a class="env-val" href="mailto:treasurealli33@gmail.com">treasurealli33@gmail.com</a></div>
+        <div><span class="env-key">PHONE</span>=<span class="env-val">+234 812 014 0605</span></div>
+        <div><span class="env-key">GITHUB</span>=<a class="env-val" href="https://github.com/TAENTED9" target="_blank" rel="noopener">github.com/TAENTED9</a></div>
+        <div><span class="env-key">LOCATION</span>=<span class="env-val">Lagos, Nigeria</span></div>
+        <div><span class="env-key">STATUS</span>=<span class="env-val" style="color:var(--teal)">open_to_internship | junior-mid_python_roles | remote_or_lagos</span></div>
+      </div>
+    </div>
+    <div class="sign">// 345 GitHub contributions in the past year · B.Sc. Computer Science, University of Lagos (2028)</div>
+  </footer>
+
+</div>
+
+<script>
+  const name = "TREASURE OLAYEMI, ALLI";
+  const el = document.getElementById('typed-name');
+  let i = 0;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function type(){
+    if(i <= name.length){
+      el.innerHTML = name.slice(0, i) + '<span class="cursor">&nbsp;</span>';
+      i++;
+      setTimeout(type, 55);
+    } else {
+      el.innerHTML = name + '<span class="cursor">&nbsp;</span>';
+    }
+  }
+
+  if(prefersReduced){
+    el.innerHTML = name;
+  } else {
+    type();
+  }
+</script>
+
+</body>
+</html>
