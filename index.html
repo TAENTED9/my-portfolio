@@ -128,8 +128,19 @@
   }
   .repo-card:hover{ border-color: var(--amber-dim); transform: translateY(-1px); }
   .repo-top{ display:flex; align-items:center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-  .repo-link{ font-family: var(--mono); font-size: 15.5px; font-weight: 700; color: var(--amber); }
-  .repo-link:hover{ text-decoration: underline; }
+  .repo-link{
+    display:inline-flex; align-items:center; gap: 6px;
+    font-family: var(--mono); font-size: 15.5px; font-weight: 700; color: var(--amber);
+    background: rgba(255,176,0,0.08); border: 1px solid rgba(255,176,0,0.32);
+    border-radius: 999px; padding: 6px 10px; line-height: 1.2;
+    transition: transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+  }
+  .repo-link::after{ content: '↗'; font-size: 12px; opacity: 0.9; }
+  .repo-link:hover{
+    text-decoration: none; background: rgba(255,176,0,0.12); border-color: rgba(255,176,0,0.6);
+    transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,176,0,0.12);
+  }
   .repo-name{ font-family: var(--mono); font-size: 15.5px; font-weight: 700; color: var(--amber); }
   .repo-status{ font-family: var(--mono); font-size: 10.5px; padding: 2px 8px; border-radius: 100px; border: 1px solid; white-space: nowrap; }
   .status-live{ color: var(--teal); border-color: var(--teal); }
@@ -189,16 +200,16 @@
   <!-- ABOUT -->
   <div class="section-head"><span class="p">$</span> <span class="cmd">cat</span> <span class="c">about.md</span></div>
   <div class="about-body">
-    <p>Results-driven <span class="hl">Python developer</span> with four years of hands-on experience building backend systems, REST APIs, data pipelines, and automation tools — comfortable across <span class="hl">FastAPI, Flask, NumPy, Pandas, and OpenCV</span>.</p>
+    <p>Results-driven <span class="hl">Python developer</span> with 5+ years of hands-on experience building backend systems, REST APIs, data pipelines, and automation tools — comfortable across <span class="hl">FastAPI, Flask, NumPy, Pandas, OpenCV and many others</span>.</p>
     <p>Currently a <span class="hl">Full Stack Developer at Applegrove Advisory</span> and a <span class="hl">Software Engineer on Cardano-focused Web3 tooling</span>, while running a freelance practice since 2021 delivering APIs, automation, and integrations for international clients.</p>
-    <p>3rd-year <span class="hl">B.Sc. Computer Science</span> student at the University of Lagos (expected 2028), and an active builder in Nigeria's hackathon circuit — Union Bank/ECX, Nomba x DevCareer, and The Zero Cup.</p>
+    <p>4th-year <span class="hl">B.Sc. Computer Science</span> student at the University of Lagos (expected 2028). </p>
   </div>
 
   <!-- STACK -->
   <div class="section-head"><span class="p">$</span> <span class="cmd">tree</span> <span class="c">stack/</span></div>
   <div class="section-sub">// core language + frameworks I ship with daily</div>
   <div class="tree">
-    <div class="tree-row"><span class="branch">├──</span> <span class="cat">languages</span> <span class="leaf">Python (adv, 4yrs), TypeScript, Rust, Java</span></div>
+    <div class="tree-row"><span class="branch">├──</span> <span class="cat">languages</span> <span class="leaf">Python, TypeScript, Rust, Java</span></div>
     <div class="tree-row"><span class="branch">├──</span> <span class="cat">backend</span> <span class="leaf">FastAPI, Flask, PostgreSQL, Supabase</span></div>
     <div class="tree-row"><span class="branch">├──</span> <span class="cat">frontend</span> <span class="leaf">Next.js, React, Tailwind CSS</span></div>
     <div class="tree-row"><span class="branch">├──</span> <span class="cat">data / ml</span> <span class="leaf">Pandas, NumPy, scikit-learn, OpenCV, Matplotlib</span></div>
@@ -264,7 +275,7 @@
 
   <!-- FEATURED PROJECTS -->
   <div class="section-head"><span class="p">$</span> <span class="cmd">ls</span> <span class="c">projects/featured/</span></div>
-  <div class="section-sub">// 12 repositories, ordered roughly by scope</div>
+  <div class="section-sub">// Ordered roughly by scope</div>
 
   <div class="repo-grid">
 
@@ -281,7 +292,31 @@
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><a class="repo-link" href="https://bloom-lite-eight.vercel.app/" target="_blank" rel="noopener">bloom-lite</a><span class="repo-status status-proto">prototype</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://www.applegrove.co/" target="_blank" rel="noopener">applegrove-advisory</a><span class="repo-status status-live">live</span></div>
+      <div class="repo-desc">Worked and improved various features of the website including the Blog system for Applegrove Advisory, Also shipped a PDF viewer/download feature with a Cloudinary proxy to get around iframe blocking.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Cloudinary</span><span class="chip">Neon</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><a class="repo-link" href="https://www.ayinlaoke.art" target="_blank" rel="noopener">collins-portfolio</a><span class="repo-status status-live">live</span></div>
+      <div class="repo-desc">Portfolio site for visual artist Collins OluwaFemi — Cinzel/Cormorant Garamond type pairing, 3D Cover Flow carousel, curtain-reveal intro.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">3D/Motion</span></div>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><a class="repo-link" href="https://firecrackersfc.com" target="_blank" rel="noopener">firecrackers-fc</a><span class="repo-status status-live">live</span></div>
+      <div class="repo-desc">Firecrackers FC — a football accelerator site built with Next.js 14 App Router, Tailwind CSS, and Resend for branded contact/partner emails.</div>
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#f7df1e"></span>JavaScript</span><span class="chip">Next.js 14</span><span class="chip">Resend</span></div>
+    </div>
+
+    <div class="repo-card"> 
+      <div class="repo-top"><a class="repo-link" href="https://www.thetalent50company.com/" target="_blank" rel="noopener">talent50</a><span class="repo-status status-live">live</span></div> 
+      <div class="repo-desc">Talent50 - operator-led executive search and talent advisory that builds leadership teams for high-growth startups and scale-ups.</div> 
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#10B981"></span>Typescript</span><span class="chip">TailwindCSS</span><span class="chip">NextJs</span></div> 
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-top"><a class="repo-link" href="https://bloom-lite-eight.vercel.app/" target="_blank" rel="noopener">bloom-lite</a><span class="repo-status status-proto">lient-prototype</span></div>
       <div class="repo-desc">Fintech remittance prototype for the Japan→Nigeria corridor, with an invisible custodial Solana layer and AES-256-GCM encrypted keypairs.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Solana</span><span class="chip">Jupiter Aggregator</span></div>
     </div>
@@ -293,15 +328,9 @@
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><a class="repo-link" href="https://solana-tx-stack.vercel.app/" target="_blank" rel="noopener">solana-tx-stack</a><span class="repo-status status-proto">prototype</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://solana-tx-stack.vercel.app/" target="_blank" rel="noopener">solana-tx-stack</a><span class="repo-status status-proto">client-prototype</span></div>
       <div class="repo-desc">Solana execution bot with an 8-stage pipeline: leader-slot detection, AI-driven tip calibration, failure diagnosis, blockhash refresh.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Jito</span><span class="chip">MEV</span></div>
-    </div>
-
-    <div class="repo-card"> 
-      <div class="repo-top"><a class="repo-link" href="https://www.thetalent50company.com/" target="_blank" rel="noopener">talent50</a><span class="repo-status status-company">company</span></div> 
-      <div class="repo-desc">Talent50 - operator-led executive search and talent advisory that builds leadership teams for high-growth startups and scale-ups.</div> 
-      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#10B981"></span>Typescript</span><span class="chip">TailwindCSS</span><span class="chip">NextJs</span></div> 
     </div>
 
     <div class="repo-card">
@@ -326,24 +355,6 @@
       <div class="repo-top"><a class="repo-link" href="https://github.com/TAENTED9/TAENTED-TUNNELD-VPN" target="_blank" rel="noopener">taented-tunneld-vpn</a><span class="repo-status status-live">tool</span></div>
       <div class="repo-desc">A production-ready VPN client written in Rust, with cross-platform support, modern encryption, and full network configuration.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#DEA584"></span>Rust</span><span class="chip">Cross-platform</span></div>
-    </div>
-
-    <div class="repo-card">
-      <div class="repo-top"><a class="repo-link" href="https://www.applegrove.co/" target="_blank" rel="noopener">applegrove-blog</a><span class="repo-status status-live">live</span></div>
-      <div class="repo-desc">Blog system for Applegrove Advisory — shipped a PDF viewer/download feature with a Cloudinary proxy to get around iframe blocking.</div>
-      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Cloudinary</span><span class="chip">Neon</span></div>
-    </div>
-
-    <div class="repo-card">
-      <div class="repo-top"><a class="repo-link" href="https://www.ayinlaoke.art" target="_blank" rel="noopener">collins-portfolio</a><span class="repo-status status-live">client</span></div>
-      <div class="repo-desc">Portfolio site for visual artist Collins OluwaFemi — Cinzel/Cormorant Garamond type pairing, 3D Cover Flow carousel, curtain-reveal intro.</div>
-      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">3D/Motion</span></div>
-    </div>
-
-    <div class="repo-card">
-      <div class="repo-top"><a class="repo-link" href="https://firecrackersfc.com" target="_blank" rel="noopener">firecrackers-fc</a><span class="repo-status status-live">client</span></div>
-      <div class="repo-desc">Firecrackers FC — a football accelerator site built with Next.js 14 App Router, Tailwind CSS, and Resend for branded contact/partner emails.</div>
-      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#f7df1e"></span>JavaScript</span><span class="chip">Next.js 14</span><span class="chip">Resend</span></div>
     </div>
 
   </div>
@@ -374,7 +385,7 @@
         <div><span class="env-key">STATUS</span>=<span class="env-val" style="color:var(--teal)">Open to internship | Fullstack/Blockchain Dev roles | Remote or lagos</span></div>
       </div>
     </div>
-    <div class="sign">// 345 GitHub contributions in the past year · B.Sc. Computer Science, University of Lagos (2028)</div>
+    <div class="sign">// 400+ GitHub contributions in the past year · B.Sc. Computer Science, University of Lagos (2028)</div>
   </footer>
 
 </div>
