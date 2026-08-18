@@ -128,6 +128,8 @@
   }
   .repo-card:hover{ border-color: var(--amber-dim); transform: translateY(-1px); }
   .repo-top{ display:flex; align-items:center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .repo-link{ font-family: var(--mono); font-size: 15.5px; font-weight: 700; color: var(--amber); }
+  .repo-link:hover{ text-decoration: underline; }
   .repo-name{ font-family: var(--mono); font-size: 15.5px; font-weight: 700; color: var(--amber); }
   .repo-status{ font-family: var(--mono); font-size: 10.5px; padding: 2px 8px; border-radius: 100px; border: 1px solid; white-space: nowrap; }
   .status-live{ color: var(--teal); border-color: var(--teal); }
@@ -179,6 +181,8 @@
       <span><span class="key">email=</span><a class="val" href="mailto:treasurealli33@gmail.com">treasurealli33@gmail.com</a></span>
       <span><span class="key">phone=</span><span class="val">+234-812-014-0605</span></span>
       <span><span class="key">github=</span><a class="val" href="https://github.com/TAENTED9" target="_blank" rel="noopener">github.com/TAENTED9</a></span>
+      <span><span class="key">linkedin=</span><a class="val" href="https://www.linkedin.com/in/treasure-o/" target="_blank" rel="noopener">linkedin.com/in/treasure-o</a></span>
+      <span><span class="key">x=</span><a class="val" href="https://x.com/taented9" target="_blank" rel="noopener">x.com/taented9</a></span>
     </div>
   </section>
 
@@ -265,37 +269,43 @@
   <div class="repo-grid">
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">campify</span><span class="repo-status status-live">live</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://campify.digital" target="_blank" rel="noopener">campify</a><span class="repo-status status-live">live</span></div>
       <div class="repo-desc">Hyperlocal marketplace for UNILAG students — security-hardened, with a full seller/buyer dashboard.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Cloudinary</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">her-homes-africa</span><span class="repo-status status-live">live</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://herhomes.africa" target="_blank" rel="noopener">her-homes-africa</a><span class="repo-status status-live">live</span></div>
       <div class="repo-desc">Nigerian real estate &amp; home-financing platform with Paystack payments, in-app messaging, and a universal notification router.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Cloudinary</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">bloom-lite</span><span class="repo-status status-proto">prototype</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://bloom-lite-eight.vercel.app/" target="_blank" rel="noopener">bloom-lite</a><span class="repo-status status-proto">prototype</span></div>
       <div class="repo-desc">Fintech remittance prototype for the Japan→Nigeria corridor, with an invisible custodial Solana layer and AES-256-GCM encrypted keypairs.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Solana</span><span class="chip">Jupiter Aggregator</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">vow-chain</span><span class="repo-status status-hack">hackathon</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://vow-chain.vercel.app" target="_blank" rel="noopener">vow-chain</a><span class="repo-status status-hack">hackathon</span></div>
       <div class="repo-desc">Vowchain — an AI accountability app writing immutable commitment records to 0G Storage — plus the underlying Solana transaction infrastructure. Built for The Zero Cup.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">0G Storage</span><span class="chip">Solana</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">jito-bundle-bot</span><span class="repo-status status-proto">prototype</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://solana-tx-stack.vercel.app/" target="_blank" rel="noopener">solana-tx-stack</a><span class="repo-status status-proto">prototype</span></div>
       <div class="repo-desc">Solana execution bot with an 8-stage pipeline: leader-slot detection, AI-driven tip calibration, failure diagnosis, blockhash refresh.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Jito</span><span class="chip">MEV</span></div>
     </div>
 
+    <div class="repo-card"> 
+      <div class="repo-top"><a class="repo-link" href="https://www.thetalent50company.com/" target="_blank" rel="noopener">talent50</a><span class="repo-status status-company">company</span></div> 
+      <div class="repo-desc">Talent50 - operator-led executive search and talent advisory that builds leadership teams for high-growth startups and scale-ups.</div> 
+      <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#10B981"></span>Typescript</span><span class="chip">TailwindCSS</span><span class="chip">NextJs</span></div> 
+    </div>
+
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">solana-security-patterns</span><span class="repo-status status-live">reference</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://github.com/TAENTED9/solana-security-patterns" target="_blank" rel="noopener">solana-security-patterns</a><span class="repo-status status-live">reference</span></div>
       <div class="repo-desc">A published library of security patterns for Solana programs — common vulnerability classes and the defensive patterns that close them.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#89E051"></span>Shell</span><span class="chip">Solana</span><span class="chip">Open source</span></div>
     </div>
@@ -307,31 +317,31 @@
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">cek-debugger</span><span class="repo-status status-live">tool</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://github.com/TAENTED9/CEK-DEBUGGER" target="_blank" rel="noopener">cek-debugger</a><span class="repo-status status-live">tool</span></div>
       <div class="repo-desc">A debugger for Untyped Plutus Core — the CEK machine that underlies Cardano smart contract execution.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#FFB000"></span>Plutus Core</span><span class="chip">Cardano</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">taented-tunneld-vpn</span><span class="repo-status status-live">tool</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://github.com/TAENTED9/TAENTED-TUNNELD-VPN" target="_blank" rel="noopener">taented-tunneld-vpn</a><span class="repo-status status-live">tool</span></div>
       <div class="repo-desc">A production-ready VPN client written in Rust, with cross-platform support, modern encryption, and full network configuration.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#DEA584"></span>Rust</span><span class="chip">Cross-platform</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">applegrove-blog</span><span class="repo-status status-live">live</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://www.applegrove.co/" target="_blank" rel="noopener">applegrove-blog</a><span class="repo-status status-live">live</span></div>
       <div class="repo-desc">Blog system for Applegrove Advisory — shipped a PDF viewer/download feature with a Cloudinary proxy to get around iframe blocking.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Cloudinary</span><span class="chip">Neon</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">collins-portfolio</span><span class="repo-status status-live">client</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://www.ayinlaoke.art" target="_blank" rel="noopener">collins-portfolio</a><span class="repo-status status-live">client</span></div>
       <div class="repo-desc">Portfolio site for visual artist Collins OluwaFemi — Cinzel/Cormorant Garamond type pairing, 3D Cover Flow carousel, curtain-reveal intro.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span><span class="chip">Next.js</span><span class="chip">3D/Motion</span></div>
     </div>
 
     <div class="repo-card">
-      <div class="repo-top"><span class="repo-name">firecrackers-fc</span><span class="repo-status status-live">client</span></div>
+      <div class="repo-top"><a class="repo-link" href="https://firecrackersfc.com" target="_blank" rel="noopener">firecrackers-fc</a><span class="repo-status status-live">client</span></div>
       <div class="repo-desc">Firecrackers FC — a football accelerator site built with Next.js 14 App Router, Tailwind CSS, and Resend for branded contact/partner emails.</div>
       <div class="repo-meta"><span class="lang"><span class="lang-dot" style="background:#f7df1e"></span>JavaScript</span><span class="chip">Next.js 14</span><span class="chip">Resend</span></div>
     </div>
@@ -358,6 +368,8 @@
         <div><span class="env-key">EMAIL</span>=<a class="env-val" href="mailto:treasurealli33@gmail.com">treasurealli33@gmail.com</a></div>
         <div><span class="env-key">PHONE</span>=<span class="env-val">08120140605</span></div>
         <div><span class="env-key">GITHUB</span>=<a class="env-val" href="https://github.com/TAENTED9" target="_blank" rel="noopener">github.com/TAENTED9</a></div>
+        <div><span class="env-key">LINKEDIN</span>=<a class="env-val" href="https://www.linkedin.com/in/treasure-o/" target="_blank" rel="noopener">linkedin.com/in/treasure-o</a></div>
+        <div><span class="env-key">TWITTER</span>=<a class="env-val" href="https://x.com/taented9" target="_blank" rel="noopener">x.com/taented9</a></div>
         <div><span class="env-key">LOCATION</span>=<span class="env-val">Lagos, Nigeria</span></div>
         <div><span class="env-key">STATUS</span>=<span class="env-val" style="color:var(--teal)">Open to internship | Fullstack/Blockchain Dev roles | Remote or lagos</span></div>
       </div>
